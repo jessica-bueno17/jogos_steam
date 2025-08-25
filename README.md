@@ -7,17 +7,22 @@ Ele calcula estatísticas como:
 - Percentual de jogos gratuitos e pagos
 - Jogos com melhor proporção de avaliações positivas
 
-### Arquivo CSV
-
-O arquivo `steam_games.csv` já está incluído no repositório, dentro do diretório raiz.  
-Não é necessário baixar ou mover nada; todas as funções e testes já estão configurados para utilizá-lo.
-
 ## Funções principais
 
 - ano_mais_jogos(jogos) → Retorna o(s) ano(s) com mais lançamentos.
 - percentual_jogos_gratuitos(jogos) → Retorna o percentual de jogos gratuitos e pagos.
 - proporcao_avaliacoes_positivas(jogos) → Retorna os top 5 jogos por proporção de avaliações positivas.
 - carrega_csv(caminho_arquivo) → Carrega um CSV e retorna uma lista de dicionários.
+
+## Executando o projeto
+
+Para executar todos os métodos criados no projeto, abra o terminal e navegue até o diretório raiz do projeto 
+(onde está localizado o arquivo `main.py`).
+
+```bash
+python main.py
+```
+**Observação:** isso irá rodar todos os métodos implementados e gerar os resultados correspondentes, como tabelas e relatórios.
 
 ## Testes
 Para a realização dos testes foram gerados arquivos csv e JSON com amostras aleatórias de 20 jogos.
