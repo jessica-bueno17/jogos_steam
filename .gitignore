@@ -1,0 +1,5 @@
+# Ignorar o arquivo de dados grande da Steam
+steam_games.csv
+
+# Arquivos de cache do Python
+__pycache__/
