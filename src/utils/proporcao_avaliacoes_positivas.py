@@ -1,59 +1,45 @@
 from typing import List, Dict, Any
 
-def proporcao_avaliacoes_positivas(jogos: List[Dict], minimo_avaliacoes=20, top=5) -> List[Dict[str, Any]]:
+def proporcao_avaliacoes_positivas(jogos: List[Dict], minimo_avaliacoes=20) -> List[Dict[str, Any]]:
     """
-    Analisa a lista de jogos e encontra os 5 com a melhor proporção de avaliações positivas.
+    Retorna todos os jogos gratuitos com 100% de avaliações positivas,
+    considerando apenas jogos com um número mínimo de avaliações.
     
     Args:
-        jogos (list): Uma lista de dicionários, onde cada dicionário é um jogo.
-        minimo_avaliacoes (int): O número mínimo de avaliações para um jogo ser considerado.
-        top (int): O número máximo de jogos na classificação.
+        jogos (list): Lista de dicionários, onde cada dicionário é um jogo.
+        minimo_avaliacoes (int): Número mínimo de avaliações para considerar o jogo.
         
     Returns:
-        list: Uma lista de dicionários contendo o nome, preço, gênero e proporção dos 5 melhores jogos.
+        list: Lista de dicionários com nome, preço e proporção dos jogos gratuitos 100% positivos.
     """
-    # Esta lista irá manter os 5 melhores jogos encontrados até o momento.
-    top_jogos: List[Dict[str, Any]] = []
+    resultados: List[Dict[str, Any]] = []
 
     for jogo in jogos:
         try:
+            preco = float(jogo['Price'])
+            if preco != 0:  # Só considera jogos gratuitos
+                continue
+
             positivas = int(jogo['Positive'])
             negativas = int(jogo['Negative'])
             total_avaliacoes = positivas + negativas
 
             if total_avaliacoes >= minimo_avaliacoes:
                 proporcao = positivas / total_avaliacoes
-                
-                # Dicionário com os dados do jogo atual
-                jogo_atual_info = {
-                    "nome": jogo['Name'],
-                    "preco": float(jogo['Price']),
-                    "proporcao": round(proporcao,2)
-                }
 
-                # Se a lista de top 5 ainda não está cheia, apenas adicionamos
-                if len(top_jogos) < top:
-                    top_jogos.append(jogo_atual_info)
-                    # Mantém a lista ordenada da maior para a menor proporção
-                    top_jogos.sort(key=lambda x: x['proporcao'], reverse=True)
-                # Se a lista já está cheia, verificamos se o jogo atual é melhor que o pior da lista
-                elif proporcao > top_jogos[-1]['proporcao']:
-                    top_jogos.pop() # Remove o pior
-                    top_jogos.append(jogo_atual_info) # Adiciona o novo
-                    top_jogos.sort(key=lambda x: x['proporcao'], reverse=True) # Reordena
+                if proporcao == 1.0:  # Só considera proporção igual a 1
+                    resultados.append({
+                        "nome": jogo['Name'],
+                        "preco": preco,
+                        "proporcao": round(proporcao, 2)
+                    })
 
         except (ValueError, KeyError, ZeroDivisionError):
-            # Ignora jogos com dados faltantes ou inválidos
             continue
             
-    top_jogos = [
-        {"nome": j["nome"], "preco": j["preco"], "proporcao": j["proporcao"]}
-        for j in top_jogos
-    ]
+    exibir_tabela(resultados, "🏆 Jogos Gratuitos com 100% de Avaliações Positivas 🏆")
+    return resultados
 
-    exibir_tabela(top_jogos, f"🏆 Top {top} Jogos por Proporção de Avaliação Positiva 🏆")
-            
-    return top_jogos
 
 def formatar_valor(key: str, value: Any) -> str:
     """Formata valores para exibição em tabela."""

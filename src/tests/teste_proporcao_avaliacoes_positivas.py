@@ -10,13 +10,7 @@ def teste_proporcao_avaliacoes_positivas():
     resultado = proporcao_avaliacoes_positivas(jogos_amostra)
 
     print("*** Iniciando teste: ano_mais_jogos ***")
-    resultado_amostra = [
-        {"nome": "Super Cucho", "preco": 1.99, "proporcao": 1},
-        {"nome": "Mr.Hack Jack: Robot Detective", "preco": 14.99, "proporcao": 0.91},
-        {"nome": "KINGDOM of the DEAD", "preco": 14.99, "proporcao": 0.83},
-        {"nome": "Summer With You", "preco": 3.99, "proporcao": 0.76},
-        {"nome": "Abstract Arena", "preco": 4.99, "proporcao": 0.55},
-    ]
+    resultado_amostra = []
     assert resultado == resultado_amostra
     print("✅ Teste passou com sucesso!")
 
