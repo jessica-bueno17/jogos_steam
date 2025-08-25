@@ -5,13 +5,13 @@ Ele calcula estatísticas como:
 
 - Ano com mais lançamentos de jogos
 - Percentual de jogos gratuitos e pagos
-- Jogos com melhor proporção de avaliações positivas
+- Jogos gratuitos com proporção 1 de avaliações positivas
 
 ## Funções principais
 
 - ano_mais_jogos(jogos) → Retorna o(s) ano(s) com mais lançamentos.
 - percentual_jogos_gratuitos(jogos) → Retorna o percentual de jogos gratuitos e pagos.
-- proporcao_avaliacoes_positivas(jogos) → Retorna os top 5 jogos por proporção de avaliações positivas.
+- proporcao_avaliacoes_positivas(jogos) → Retorna os jogos gratuitos com proporção de avaliações positivas igual a 1.
 - carrega_csv(caminho_arquivo) → Carrega um CSV e retorna uma lista de dicionários.
 
 ## Executando o projeto
@@ -32,7 +32,7 @@ Os testes devem ser executados no seguinte diretório `/src`. Execute o comando 
 python -m tests.<nome_do_teste>
 ```
 
-Obs.: Substitua <nome_do_teste> pelo nome do arquivo de teste, sem a extensão .py.
+**Observação:** substitua <nome_do_teste> pelo nome do arquivo de teste, sem a extensão .py
 
 ### Amostras geradas
 
@@ -44,9 +44,7 @@ O repositório contém em `src/tests/`  dois scripts que foram usados para gerar
 **Observação:** os arquivos de amostra (`amostra_aleatoria_20_linhas.csv` e `amostra_aleatoria_20_linhas.json`) já foram gerados e estão incluídos no repositório.  
 Não é necessário executar esses scripts novamente.  
 
-Todos os testes foram executados com base nesses arquivos de amostra.
-
-Além disso, existe o arquivo `analise_amostra.csv`, que foi utilizado apenas para análise exploratória dos dados e validação dos valores. Ele não é necessário para executar as funções ou os testes.
+Todos os testes foram executados com base nesses arquivos de amostra. Além disso, existe o arquivo `analise_amostra.csv`, que foi utilizado apenas para análise exploratória dos dados e validação dos valores. Ele não é necessário para executar as funções ou os testes.
 
 ## Dependências
 
