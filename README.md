@@ -1,11 +1,14 @@
 # Análise de Jogos Steam
 
-Este projeto realiza uma análise básica de jogos da Steam a partir de um arquivo CSV.  
+Este projeto realiza uma análise básica de jogos da Steam a partir de um arquivo CSV.
+
 Ele calcula estatísticas como:
 
 - Ano com mais lançamentos de jogos
 - Percentual de jogos gratuitos e pagos
 - Jogos gratuitos com proporção 1 de avaliações positivas
+
+Link para arquivo [steam_games](https://drive.google.com/drive/folders/1iSrASnt0vkSNjq66a3RVdy5adFiw5qqX). 
 
 ## Funções principais
 
